@@ -1,10 +1,5 @@
-import "./App.css"
-function App() {
-  return (
-    <div className="App">
-        Subscribe Zainkeeps code
-    </div>
-  );
-}
+import "./App.css";
 
-export default App;
+export default function App() {
+  return <div className="App">Subscribe Zainkeeps code</div>;
+}
