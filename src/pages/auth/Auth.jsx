@@ -3,6 +3,7 @@ import Logo from "../../img/logo.png"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { logIn, signUp } from "../../actions/authAction"
+import { useSelector } from "react-redux"
 
 export default function Auth() {
     const [isSignUp, setIsSignUp] = useState(true)
@@ -15,6 +16,8 @@ export default function Auth() {
     })
     const [confirmPass, setConfirmPass] = useState(true)
     const dispatch = useDispatch()
+    const loading = useSelector((state) => state.authReducer.loading)
+    console.log(loading)
 
     const handleInputChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
@@ -80,8 +83,8 @@ export default function Auth() {
                             {isSignUp ? "Already have an account? Login" : "Don't have an account? Signup"}
                         </span>
                     </div>
-                    <button type="submit" className="btn infoBtn">
-                        {isSignUp ? "Signup" : "Login"}
+                    <button type="submit" className="btn infoBtn" disabled={loading} >
+                        {loading ? "Loading..." : isSignUp ? "Signup" : "Login"}
                     </button>
                 </form>
             </div>
