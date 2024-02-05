@@ -1,6 +1,8 @@
 import "./Auth.css"
 import Logo from "../../img/logo.png"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { logIn, signUp } from "../../actions/authAction"
 
 export default function Auth() {
     const [isSignUp, setIsSignUp] = useState(true)
@@ -12,6 +14,7 @@ export default function Auth() {
         confirmpass: ""
     })
     const [confirmPass, setConfirmPass] = useState(true)
+    const dispatch = useDispatch()
 
     const handleInputChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
@@ -20,9 +23,10 @@ export default function Auth() {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (isSignUp) {
-            if (data.password !== data.confirmpass) {
-                setConfirmPass(false)
-            }
+            data.password === data.confirmpass ? dispatch(signUp(data)) : setConfirmPass(false)
+        }
+        else {
+            dispatch(logIn(data))
         }
     }
 
