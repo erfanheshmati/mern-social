@@ -44,6 +44,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  min-width: 420px;
 }
 
 .infoInput {
@@ -78,4 +79,14 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.authForm span {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.authForm span:hover{
+  opacity: 0.8;
+  text-decoration: underline;
 }
