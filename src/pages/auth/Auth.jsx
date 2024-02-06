@@ -17,7 +17,6 @@ export default function Auth() {
     const [confirmPass, setConfirmPass] = useState(true)
     const dispatch = useDispatch()
     const loading = useSelector((state) => state.authReducer.loading)
-    console.log(loading)
 
     const handleInputChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
