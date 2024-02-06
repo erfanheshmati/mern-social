@@ -24,7 +24,7 @@ export default function ProfileCard() {
                         <span>6,890</span>
                         <span>Followings</span>
                     </div>
-                    <dic className="vl"></dic>
+                    <div className="vl"></div>
                     <div className="follow">
                         <span>1</span>
                         <span>Followers</span>
