@@ -7,6 +7,7 @@ import TrendCard from "../trendCard/TrendCard"
 import { useState } from "react"
 import { Modal } from '@mantine/core';
 import PostShare from "../postShare/PostShare"
+import { Link } from "react-router-dom"
 
 export default function RightSide() {
     const [modalOpened, setModalOpened] = useState(false)
@@ -14,7 +15,7 @@ export default function RightSide() {
     return (
         <div className="RightSide">
             <div className="navIcons">
-                <img src={Home} alt="" />
+                <Link to="../home"><img src={Home} alt="" /></Link>
                 <UilSetting />
                 <img src={Noti} alt="" />
                 <img src={Comment} alt="" />

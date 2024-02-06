@@ -1,5 +1,4 @@
 import "./PostShare.css"
-import ProfileImage from "../../img/profileImg.jpg"
 import { UilScenery, UilPlayCircle, UilLocationPoint, UilSchedule, UilTimes } from "@iconscout/react-unicons"
 import { useState, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -12,6 +11,7 @@ export default function PostShare() {
     const desc = useRef()
     const dispatch = useDispatch()
     const loading = useSelector((state) => state.postReducer.uploading)
+    const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
 
     const onImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
@@ -49,7 +49,7 @@ export default function PostShare() {
 
     return (
         <div className="PostShare">
-            <img src={ProfileImage} alt="" />
+            <img src={user.profilePicture ? serverPublic + user.profilePicture : serverPublic + "defaultProfile.png"} alt="" />
             <div>
                 <input type="text" placeholder="What's happening" ref={desc} required />
                 <div className="postOptions">
