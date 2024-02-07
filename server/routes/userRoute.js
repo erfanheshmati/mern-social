@@ -5,9 +5,11 @@ import {
   getUser,
   unfollowUser,
   updateUser,
+  getAllUsers,
 } from "../controllers/userController.js";
 
 const router = express.Router();
+router.get("/", getAllUsers);
 router.get("/get/:id", getUser);
 router.put("/update/:id", updateUser);
 router.delete("/delete/:id", deleteUser);

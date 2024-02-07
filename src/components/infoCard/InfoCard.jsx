@@ -54,7 +54,7 @@ export default function InfoCard() {
         e.preventDefault()
         let userData = formData
         if (profileImage) {
-            const data = new formData()
+            const data = new FormData()
             const fileName = Date.now() + profileImage.name
             data.append("name", fileName)
             data.append("file", profileImage)
@@ -66,7 +66,7 @@ export default function InfoCard() {
             }
         }
         if (coverImage) {
-            const data = new formData()
+            const data = new FormData()
             const fileName = Date.now() + coverImage.name
             data.append("name", fileName)
             data.append("file", coverImage)
