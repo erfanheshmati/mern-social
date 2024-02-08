@@ -18,7 +18,7 @@ export default function RightSide() {
                 <Link to="../home"><img src={Home} alt="" /></Link>
                 <UilSetting />
                 <img src={Noti} alt="" />
-                <img src={Comment} alt="" />
+                <Link to="../chat"><img src={Comment} alt="" /></Link>
             </div>
             <TrendCard />
             <button className="btn r-btn" onClick={() => setModalOpened(true)}>Share</button>

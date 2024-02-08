@@ -1,11 +1,11 @@
-import "./Post.css"
+import { useSelector } from "react-redux"
+import { useState } from "react"
+import { likePost } from "../../api/postRequest"
 import Comment from "../../img/comment.png"
 import Share from "../../img/share.png"
 import Like from "../../img/like.png"
 import NotLike from "../../img/notlike.png"
-import { useSelector } from "react-redux"
-import { useState } from "react"
-import { likePost } from "../../api/postRequest"
+import "./Post.css"
 
 
 export default function Post({ data }) {
