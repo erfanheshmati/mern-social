@@ -23,7 +23,7 @@ export default function Posts() {
             {loading
                 ? "Fetching posts..."
                 : posts.map((post, id) => {
-                    return <Post data={post} id={id} key={id} />
+                    return <Post data={post} key={id} />
                 })
             }
         </div>

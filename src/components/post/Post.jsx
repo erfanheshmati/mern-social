@@ -14,8 +14,8 @@ export default function Post({ data }) {
     const [likes, setLikes] = useState(data.likes.length)
 
     const handleLike = () => {
-        setLiked((prev) => !prev)
         likePost(data._id, user._id)
+        setLiked((prev) => !prev)
         liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1)
     }
 
@@ -32,8 +32,8 @@ export default function Post({ data }) {
             <span style={{ color: "var(--gray)", fontSize: "12px" }}>{likes} likes</span>
 
             <div className="details">
-                <span><b>{data.name}</b></span>
-                <span> {data.desc}</span>
+                <span><b>{data.userId} </b></span>
+                <span>&nbsp;{data.desc}</span>
             </div>
         </div>
     )
