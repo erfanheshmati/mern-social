@@ -7,6 +7,8 @@ import userRoute from "./routes/userRoute.js";
 import postRoute from "./routes/postRoute.js";
 import cors from "cors";
 import uploadRoute from "./routes/uploadRoute.js";
+import chatRoute from "./routes/chatRoute.js";
+import messageRoute from "./routes/messageRoute.js";
 
 const app = express();
 
@@ -35,3 +37,5 @@ app.use("/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/post", postRoute);
 app.use("/upload", uploadRoute);
+app.use("/chat", chatRoute);
+app.use("/message", messageRoute);
