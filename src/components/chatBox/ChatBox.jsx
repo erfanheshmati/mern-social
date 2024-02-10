@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { getUser } from "../../api/userRequest"
 import "./ChatBox.css"
 import { addMessage, getMessages } from "../../api/messageRequest"
@@ -10,6 +10,7 @@ export default function ChatBox({ chat, currentUser, setSendMessage, recieveMess
     const [userData, setUserData] = useState(null)
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
+    const scroll = useRef()
 
 
     // fetch header data
@@ -74,6 +75,12 @@ export default function ChatBox({ chat, currentUser, setSendMessage, recieveMess
     }, [recieveMessage])
 
 
+    // scroll to last message
+    useEffect(() => {
+        scroll.current?.scrollIntoView({ behavior: "smooth" })
+    }, [messages])
+
+
     return (
         <div className="chatbox-container">
             {chat ? (
@@ -93,12 +100,10 @@ export default function ChatBox({ chat, currentUser, setSendMessage, recieveMess
                     {/* chatbox message */}
                     <div className="chat-body">
                         {messages.map((message) => (
-                            <>
-                                <div className={message.senderId === currentUser ? "message own" : "message"}>
-                                    <span>{message.text}</span>
-                                    <span>{format(message.createdAt)}</span>
-                                </div>
-                            </>
+                            <div ref={scroll} className={message.senderId === currentUser ? "message own" : "message"}>
+                                <span>{message.text}</span>
+                                <span>{format(message.createdAt)}</span>
+                            </div>
                         ))}
                     </div>
 
